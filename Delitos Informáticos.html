@@ -1,15 +1,25 @@
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delitos Informáticos</title>
-    <link rel="stylesheet" href="css/styles.css">
     <style>
+        /* Estilos básicos */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: 	#808080;
+            background-color: #808080;
             color: #f1eeee;
             display: flex;
             flex-direction: column;
@@ -26,11 +36,17 @@
             box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
         }
 
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
         nav ul {
             list-style: none;
-            display: flex;
             padding: 0;
             margin: 0;
+            display: flex;
         }
 
         nav ul li {
@@ -48,6 +64,14 @@
 
         nav a:hover {
             background-color: #777777;
+        }
+
+        .menu-toggle {
+            display: none;
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 24px;
         }
 
         main {
@@ -100,11 +124,59 @@
             background-color: #333333;
             color: #f1eeee;
         }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #424242;
+            }
+
+            nav.active ul {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 0;
+                width: 100%;
+            }
+
+            nav ul li a {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .card-content h3 {
+                font-size: 1em;
+            }
+
+            .card-content p {
+                font-size: 0.8em;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Delitos Informáticos</h1>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
@@ -112,10 +184,12 @@
                 <li><a href="Privacidad y Protección de Datos.html">Privacidad</a></li>
                 <li><a href="Ramas_del_derecho.html">Ramas del Derecho</a></li>
             </ul>
+            
         </nav>
+
+        
     </header>
     <main>
-
         <h1>Delitos Informáticos</h1>
         <div class="cards-container">
             <div style="text-align: justify; font-family: Arial, sans-serif; line-height: 2.0; 
@@ -130,52 +204,46 @@
             </div>
 
         </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 20px;">
-            <!-- Tarjeta 1 -->
-            <div style="background-color: #f5f5f5; width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); overflow: hidden;">
-                <div style="padding: 20px;">
-                    <h3 style="color: #424242;">Regulación en México</h3>
-                    <p style="color: #555; line-height: 1.6;">En México, los delitos informáticos están regulados por el Código Penal Federal y la Ley Federal de Protección de Datos Personales.</p>
-                    <a href="regulacion.html" style="text-decoration: none; color: #4285f4; font-weight: bold;">Leer más</a>
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-content">
+                    <h3>Regulación en México</h3>
+                    <p>En México, los delitos informáticos están regulados por el Código Penal Federal y la Ley Federal de Protección de Datos Personales.</p>
+                    <a href="regulacion.html">Ver más</a>
                 </div>
             </div>
-        
-            <!-- Tarjeta 2 -->
-            <div style="background-color: #f5f5f5; width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); overflow: hidden;">
-                <div style="padding: 20px;">
-                    <h3 style="color: #424242;">Tipos de Delitos</h3>
-                    <p style="color: #555; line-height: 1.6;">Hacking, phishing, malware, robo y suplantación de identidad son los más comunes.</p>
-                    <a href="tiposdedelitos.html" style="text-decoration: none; color: #4285f4; font-weight: bold;">Leer más</a>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Tipos de Delitos</h3>
+                    <p>Hacking, phishing, malware, robo y suplantación de identidad son los más comunes.</p>
+                    <a href="tiposdedelitos.html">Ver más</a>
                 </div>
             </div>
-        
-            <!-- Tarjeta 3 -->
-            <div style="background-color: #f5f5f5; width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); overflow: hidden;">
-                <div style="padding: 20px;">
-                    <h3 style="color: #424242;">Sanciones</h3>
-                    <p style="color: #555; line-height: 1.6;">Prisión, multas económicas y reparación de daños son algunas de las sanciones aplicadas.</p>
-                    <a href="sanciones.html" style="text-decoration: none; color: #4285f4; font-weight: bold;">Leer más</a>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Sanciones</h3>
+                    <p>Prisión, multas económicas y reparación de daños son algunas de las sanciones aplicadas.</p>
+                    <a href="sanciones.html">Ver más</a>
                 </div>
             </div>
-        
-            <!-- Tarjeta 4 -->
-            <div style="background-color: #f5f5f5; width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); overflow: hidden;">
-                <div style="padding: 20px;">
-                    <h3 style="color: #424242;">Prevención</h3>
-                    <p style="color: #555; line-height: 1.6;">El uso de contraseñas fuertes, software de seguridad y precaución con correos electrónicos ayuda a prevenir estos delitos.</p>
-                    <a href="prevencion.html" style="text-decoration: none; color: #4285f4; font-weight: bold;">Leer más</a>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Prevención</h3>
+                    <p>El uso de contraseñas fuertes, software de seguridad y precaución con correos electrónicos ayuda a prevenir estos delitos.</p>
+                    <a href="prevencion.html">Ver más</a>
                 </div>
             </div>
-        
-            
-            
         </div>
-        
-        
-        
     </main>
     <footer>
         <p>&copy; 2024 Delitos Informáticos. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>

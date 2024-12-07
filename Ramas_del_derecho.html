@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -29,22 +27,27 @@
             box-shadow: 0 1px 1px rgba(0,0,0,0.1);
         }
 
-        nav {
-            display: flex;
+        .menu-toggle {
+            display: none;
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
         }
 
-        .menu {
+        nav ul {
+            list-style: none;
             display: flex;
-            list-style-type: none;
             padding: 0;
             margin: 0;
         }
 
-        .menu li {
+        nav ul li {
             margin-left: 20px;
         }
 
-        .menu a {
+        nav a {
             text-decoration: none;
             color: #ffffff;
             background-color: #555555;
@@ -53,8 +56,51 @@
             transition: background-color 0.3s;
         }
 
-        .menu a:hover {
+        nav a:hover {
             background-color: #777777;
+        }
+
+        /* Mostrar el menú completo en pantallas grandes */
+        nav ul {
+            display: flex;  /* Menú visible en pantallas grandes */
+            flex-direction: row;  /* Los elementos están en fila */
+        }
+        
+        nav ul.active {
+            display: flex;
+        }
+
+        /* Mostrar el botón de menú en pantallas pequeñas */
+        @media (max-width: 767px) {
+            nav ul {
+                display: none;  /* Ocultar el menú por defecto en pantallas pequeñas */
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 10px;
+                background-color: #d1c9c9;
+                border-radius: 5px;
+                width: 200px;
+            }
+        
+            nav ul.active {
+                display: flex;  /* Mostrar el menú cuando esté activo */
+            }
+        
+            .menu-toggle {
+                display: block;  /* Mostrar el botón de menú en pantallas pequeñas */
+            }
+        
+            nav ul li {
+                margin: 10px 0;
+            }
+        
+            nav ul li a {
+                text-align: center;
+                padding: 12px 10px;
+                font-size: 14px;
+                margin: 8px 0;
+            }
         }
 
         main {
@@ -120,10 +166,11 @@
             <h1>Ramas del derecho</h1>
         </div>
         <nav>
+            <button class="menu-toggle" onclick="toggleMenu()">☰ Menú</button>
             <ul class="menu">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="Delitos Informáticos.html">Delitos Informáticos</a></li>
-                <li><a href="Privacidad y Protección de Datos.html">Privacidad y Protección de Datos</a></li>
+                <li><a href="Privacidad y Protección de Datos.html">Privacidad y Protección</a></li>
                 <li><a href="Ramas_del_derecho.html">Ramas del derecho</a></li>
             </ul>
         </nav>
@@ -162,5 +209,12 @@
         <p>&copy; 2024 Ramas del derecho</p>
         <p>Edwin Galica Colin, Benjamien José Ángeles, Marco Antonio Agapito Clemente, Otoniel García Romero</p>
     </footer>
+    
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('nav ul');
+            menu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
